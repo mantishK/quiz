@@ -1,11 +1,16 @@
-# quiz
+# Longest Compund Word Finder
 
+## Installation
+Get the code  
+```go get github.com/mantishK/quiz```  
+Run it  
+```cd $GOPATH/src/github.com/mantishK/quiz```  
+```go run main.go -file="/path/to/words.list"```
 
-Q: Given a list of words like https://github.com/NodePrime/quiz/blob/master/word.list find the longest compound-word in the list, which is also a concatenation of other sub-words that exist in the list. The program should allow the user to input different data. The finished solution shouldn't take more than one hour. Any programming language can be used, but Go is preferred.
-
-
-Fork this repo, add your solution and documentation on how to compile and run your solution, and then issue a Pull Request. 
-
-Obviously, we are looking for a fresh solution, not based on others' code.
-
-
+## Solution
+#### Storing the words in space and time effecient way  
+Build a tree for each starting character of the words. Add each character to the node of the respective tree and mark the node containing the last character of each node as "end".
+#### Retreiving the words
+Traverse the tree to match each character and if the node marked "end" is reached at the last character of the word, then we have a match.
+#### Finding compound words
+For each word, begin with the first character and test if it exists and if the rest of the sub-word is a compound word recursively.
